@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/default.css">
+    <style>
+        html {
+            font-family: 'Noto Sans KR', sans-serif;
+            /*구글 폰트*/
+        }
+
+        body {
+            overflow-x: hidden;
+            /*가로 스크롤 안생기게*/
+            color: rgb(29, 29, 31);
+            /*애플 폰트 색*/
+            letter-spacing: -0.05em;
+            /*자간 줄이기*/
+            background: white;
+        }
+
+        a {
+            color: rgb(29, 29, 31);
+            /*a 태그 색바꾸고*/
+            text-decoration: none;
+            /*선 없앰*/
+        }
+
+        /*메뉴*/
+        .nav {
+            position: fixed;
+            /*yOffset 계산할 때 공간 차지하지 않게하기 위해서*/
+            top: 0;
+            left: 0;
+            z-index: 1;
+            height: 90px;
+            width: 100%;
+            padding: 0 1rem;
+            background: white;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-links {
+            /*두 개 같은 거*/
+            display: flex;
+            /*flex 해서*/
+            align-items: center;
+            /*세로 방향 센터 정렬*/
+            max-width: 1000px;
+            /*최대 폭 1000px*/
+            height: 100%;
+            /*부모 높이 만큼 높이 지정*/
+            margin: 0 auto;
+            /*센터 정렬*/
+        }
+
+        .nav-links .web-name {
+            /*왼쪽에 따로 떨어져 있는 거*/
+            margin-right: auto;
+            /*오른 쪽 마진을 오토로 주면 오른 쪽 마진을 다 소비해서 가장 왼쪽에 위치*/
+            /*마진에 오토가 들어가면 내가 가질 수 있는 마진(여백)을 다 소비함*/
+            font-size: 1.4rem;
+            /*폰트 사이즈 키움*/
+            font-weight: bold;
+            /*두껍게*/
+        }
+
+        /*태그 이름보다 클래스 이름이 더 우선권 있음*/
+        .nav-links a {
+            /*local-nav-links 밑의 a 태그들*/
+            font-size: 0.8rem;
+            /*좀 작게 만듦*/
+        }
+
+        .nav-links a:not(.web-name) {
+            /*product-name을 제외한 local-nav-links 밑의 a 태그들*/
+            margin-left: 2em;
+            /*왼 쪽에 마진 줘서 띄움*/
+        }
+
+        /*동영상*/
+        .iframebox {
+            margin-top: 90px;
+            position: relative;
+            width: 100%;
+            padding-bottom: 42.8%;
+        }
+
+        .iframebox iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*공지*/
+        .notice-container {
+            padding: 40px 0;
+            background-color: #f2f2f2;
+        }
+
+        .notice-name {
+            height: 192px;
+            font-size: 4rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .notice-viewport {
+            width: 100vw;
+            height: 422px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notice-list {
+            display: flex;
+            transition: transform 0.5s;
+        }
+
+        .notice {
+            box-sizing: content-box;
+            min-width: 20vw;
+            display: flex;
+            flex-direction: column;
+            margin-left: 2vw;
+            background-color: #2a344a;
+            color: white;
+            padding: 1.5vw;
+        }
+
+        .notice-img {
+            height: 0;
+            padding-bottom: 60%;
+            margin-bottom: 7px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('lightning.jpg');
+        }
+
+        .notice-desc {
+            font-weight: bolder;
+            font-size: 1rem;
+            flex: 1 1 auto;
+            max-height: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: pre-wrap;
+            /*길이가 늘어남. 부모가 스트레치로 늘어나서*/
+        }
+
+        /*메인섹션*/
+        .scroll-section {
+            padding-top: 50vh;
+        }
+
+        .left-name {
+            font-weight: bolder;
+            font-size: 3rem;
+            margin-left: 50px;
+            margin-bottom: 4rem;
+        }
+        .right-name {
+            font-weight: bolder;
+            font-size: 3rem;
+            text-align: end;
+            margin-right: 50px;
+            margin-bottom: 4rem;
+        }
+        .edu-img {
+            background-image: url('edu.jpg');
+            width: 50vw;
+            height: 25vw;
+            background-size: cover;
+            margin-left: auto;
+            margin-right: 50px;
+            border-radius: 20px;
+            box-shadow: 5px 10px 30px 8px;
+        }
+        .propa-img {
+            background-image: url('propa.jpg');
+            width: 50vw;
+            height: 25vw;
+            background-size: cover;
+            margin-left: 50px;
+            border-radius: 20px;
+            box-shadow: 5px 10px 30px 8px;
+        }
+        .trip-img {
+            background-image: url('trip.jpg');
+            width: 50vw;
+            height: 25vw;
+            background-size: cover;
+            margin-left: auto;
+            margin-right: 50px;
+            border-radius: 20px;
+            box-shadow: 5px 10px 30px 8px;
+        }
+        /*contact*/
+        .contact {
+            margin-top: 50vh;
+            padding-top: 40px;
+            padding-bottom: 90px;
+            background-color: #2a344a;
+        }
+        .contact-name {
+            height: 192px;
+            font-size: 4rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            color: white;
+        }
+        form {
+            
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+        input {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        input::placeholder {
+            font-size: 1rem;
+        }
+        textarea {
+            margin-bottom: 2rem;
+        }
+        .submit {
+            width: 15%;
+            background-color: white;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            margin: 0 auto;
+        }
+        /*footer*/
+        footer {
+            height: 5rem;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="nav-links">
+                <a href="#" class="web-name">파주학당</a>
+                <a href="#">강사양성</a>
+                <a href="#">강사파견</a>
+                <a href="#">여행</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+        <section class="iframebox">
+            <iframe src="https://www.youtube.com/embed/NtG9eS3qZ24" frameborder="0" allowfullscreen></iframe>
+        </section>
+        <section class="notice-container">
+            <div class="notice-name">-notice-</div>
+            <div class="notice-viewport">
+                <div class="notice-list">
+                    <div class="notice">
+                        <div class="notice-img"></div>
+                        <div class="notice-desc">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, laudantium. Lorem ipsum dolor
+                            sit amet consectetur, adipisicing elit. At, laudantium.
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-img"></div>
+                        <div class="notice-desc">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, laudantium. Lorem ipsum dolor
+                            sit amet consectetur, adipisicing elit. At, laudantium. Lorem ipsum dolor sit amet
+                            consectetur, adipisicing elit. At, laudantium.
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-img"></div>
+                        <div class="notice-desc">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, laudantium.Lorem ipsum dolor
+                            sit amet consectetur, adipisicing elit. At, laudantium.
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-img"></div>
+                        <div class="notice-desc">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, laudantium.Lorem ipsum dolor
+                            sit amet consectetur, adipisicing elit. At, laudantium.
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-img"></div>
+                        <div class="notice-desc">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, laudantium.
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-img"></div>
+                        <div class="notice-desc">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, laudantium.
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-img"></div>
+                        <div class="notice-desc">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, laudantium.
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-img"></div>
+                        <div class="notice-desc">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, laudantium.
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-img"></div>
+                        <div class="notice-desc">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, laudantium.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="scroll-section edu">
+            <div class="left-name">강사 파견 교육</div>
+            <div class="edu-img"></div>
+        </section>
+        <section class="scroll-section propa">
+            <div class="right-name">전문 강사 파견</div>
+            <div class="propa-img"></div>
+        </section>
+        <section class="scroll-section trip">
+            <div class="left-name">여행</div>
+            <div class="trip-img"></div>
+        </section>
+
+        <section class="contact">
+            <div class="contact-name">-contact-</div>
+            <form action="#">
+                <input type="text" placeholder="성명을 입력하세요">
+                <input type="text" placeholder="이메일을 입력하세요">
+                <input type="text" placeholder="연락처를 입력하세요">
+                <textarea name="" id="" cols="30" rows="10" placeholder="남기실 메시지를 입력하세요"></textarea>
+                <button class='submit' >완 료</button>
+            </form>
+        </section>
+        <footer>
+            -웹SW 3조-
+        </footer>
+    </div>
+</body>
+
+</html>
