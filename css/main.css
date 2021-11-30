@@ -1,0 +1,479 @@
+html {
+    font-family: 'Noto Sans KR', sans-serif;
+    /*구글 폰트*/
+}
+
+body {
+    overflow-x: hidden;
+    /*가로 스크롤 안생기게*/
+    color: rgb(29, 29, 31);
+    /*애플 폰트 색*/
+    letter-spacing: -0.05em;
+    /*자간 줄이기*/
+    background: white;
+}
+
+a {
+    color: rgb(29, 29, 31);
+    /*a 태그 색바꾸고*/
+    text-decoration: none;
+    /*선 없앰*/
+}
+
+/*메뉴*/
+.nav {
+    position: fixed;
+    /*yOffset 계산할 때 공간 차지하지 않게하기 위해서*/
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 90px;
+    width: 100%;
+    padding: 0 1rem;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-links {
+    /*두 개 같은 거*/
+    display: flex;
+    /*flex 해서*/
+    align-items: center;
+    /*세로 방향 센터 정렬*/
+    max-width: 1000px;
+    /*최대 폭 1000px*/
+    height: 100%;
+    /*부모 높이 만큼 높이 지정*/
+    margin: 0 auto;
+    /*센터 정렬*/
+}
+
+.nav-links .web-name {
+    /*왼쪽에 따로 떨어져 있는 거*/
+    margin-right: auto;
+    /*오른 쪽 마진을 오토로 주면 오른 쪽 마진을 다 소비해서 가장 왼쪽에 위치*/
+    /*마진에 오토가 들어가면 내가 가질 수 있는 마진(여백)을 다 소비함*/
+    font-size: 1.4rem;
+    /*폰트 사이즈 키움*/
+    font-weight: bold;
+    /*두껍게*/
+}
+
+/*태그 이름보다 클래스 이름이 더 우선권 있음*/
+.nav-links a {
+    /*local-nav-links 밑의 a 태그들*/
+    font-size: 0.8rem;
+    /*좀 작게 만듦*/
+}
+
+.nav-links a:not(.web-name) {
+    /*product-name을 제외한 local-nav-links 밑의 a 태그들*/
+    margin-left: 2em;
+    /*왼 쪽에 마진 줘서 띄움*/
+}
+
+/*동영상*/
+.video {
+    position: fixed;
+    width: 100%;
+    top: 90px;
+
+}
+
+.iframebox {
+
+
+    position: relative;
+    width: 100%;
+    padding-bottom: 42.8%;
+    /*padding-bottom: 56.25%;*/
+}
+
+.iframebox iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.hide-container {
+    position: relative;
+    z-index: 1;
+}
+
+/*공지*/
+.notice-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5vw 0;
+    background-color: #f2f2f2;
+}
+
+.notice-name {
+    height: 15vw;
+    margin-bottom: 3vw;
+    font-size: 7vw;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.notice-viewport {
+    margin: 0 auto;
+    width: 88vw;
+    /*height: 49.5vw;*/
+    margin-bottom: 5vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.notice-list {
+    position: relative;
+    display: flex;
+    transition: transform 0.5s;
+}
+
+.notice {
+    box-sizing: border-box;
+    min-width: 20vw;
+    max-width: 20vw;
+    padding: 1vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #2a344a;
+    color: white;
+
+}
+
+.notice-img {
+    height: 0;
+    padding-bottom: 60%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.notice-desc {
+    flex: 1 1 auto;
+}
+
+.notice-desc-name {
+    max-height: 3.5rem;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    margin: 1vw 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.notice-desc-text {
+    font-size: 1.2rem;
+    max-height: 15vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    /*길이가 늘어남. 부모가 스트레치로 늘어나서*/
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnContainer button {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50px;
+    background-color: blue;
+    margin: 0 10px;
+}
+
+/*메인섹션*/
+.scroll-container {
+
+    background-color: white;
+
+}
+
+.scroll-section {
+    /*border: 1px solid red;*/
+    padding-top: 50vh;
+}
+
+/*main-message 박스의 높이를 설정해주고 안의 p를 센터 정렬하면 p가 몇줄이든 가운데 정렬해주면 된다.*/
+.main-message {
+    display: flex;
+    align-items: center;
+    /*센터 정렬*/
+    justify-content: start;
+    /*센터 정렬*/
+    top: 35vh;
+    /*높이의 35% 위치*/
+    margin: 5px 0;
+    /*상하 마진 줘서 떨어뜨리기*/
+    height: 3em;
+    /*여기 폰트 사이즈(2.5rem)의 3배 높이*/
+
+    opacity: 0;
+    /*기본적으로 안보이게*/
+}
+
+.a {
+    font-size: 3rem;
+}
+
+.b {
+    font-size: 2rem;
+}
+
+.main-message p {
+    font-weight: bold;
+    /*두껍게*/
+
+    padding-left: 5vw;
+    line-height: 1.2;
+    /*행간 줄이기*/
+}
+
+.sticky-elem {
+    display: none;
+    /*기본적으로 안보이게함*/
+    position: fixed;
+    /*고정*/
+    left: 0;
+    width: 100%;
+    /*폭을 꽉차게.  센터 정렬되있음*/
+}
+
+/*바디에 붙는 아이디*/
+/*두 번째 구간을 스크롤 중이라면 자바스크립트로 바디에 show-scene-2를 id로 붙여줌*/
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem {
+    display: block;
+    /*보이게 함*/
+}
+
+
+.sticky-elem-img {
+
+    top: 40vh;
+    opacity: 0;
+    width: 100%;
+}
+
+.sticky-elem-img div {
+    width: 60%;
+    height: 0;
+    padding-bottom: 60%;
+    margin-bottom: 7px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: auto;
+
+}
+
+#img-0 {
+    background-image: url('../img/edu.jpg');
+}
+
+#img-1 {
+    background-image: url('../img/propa.jpg');
+}
+
+#img-2 {
+    background-image: url('../img/trip.jpg');
+}
+
+/*contact*/
+.contact-menu-list {
+    box-sizing: content-box;
+    padding-top: 100vh;
+    background-color: white;
+    width: 100%;
+    height: 5vw;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.contact-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 100%;
+    background-color: gray;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 2vw;
+    color: white;
+    font-weight: bolder;
+}
+.contact-menu.selected {
+    background-color: #2a344a;
+    transform: scale(1.3);
+    transition: 0.05s ease;
+}
+
+.contact {
+    width: 100vw;
+    padding-bottom: 90px;
+    background-color: #2a344a;
+}
+
+.contact-name {
+    height: 192px;
+    font-size: 4rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.reserveform {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.input-div {
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: white;
+    font-size: 1rem;
+    padding-right: 2%;
+}
+.input-name {
+    width: 10%;
+    min-width: 88px;
+    padding-left: 2%;
+}
+
+input {
+    font-size: 1.2rem;
+    flex: 1 1 auto;
+    border: none;
+    
+}
+
+input::placeholder {
+    font-size: 1rem;
+}
+
+.textarea-div {
+    width: 100%;
+    display: flex;
+    padding: 1% 0;
+    padding-right: 2%;
+    margin-bottom: 2rem;
+    background-color: white;
+    font-size: 1rem;
+}
+
+textarea {
+    flex: 1 1 auto;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.submit {
+    width: 15%;
+    background-color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin: 0 auto;
+}
+/*드롭다운*/
+.select {
+    position: relative;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    padding: 10px 2%;
+    cursor: pointer;
+    width: 100%;
+    height: 2.5rem;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.select .option-list {  /*위치 및 속성*/
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+
+    list-style: none;
+    padding: 0;
+    
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+
+.select.active .option-list {   /*활성화됐을 때 보이기*/
+    max-height: none;
+}
+
+.select .option-list .option {
+    padding: 10px 2%;
+}
+
+/*예약 정보*/
+.info-desc {
+    border: 1px solid white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+.info-desc-con {
+    display: flex;
+    margin-bottom: 1rem;
+}
+.info-desc-name {
+    width: 20%;
+    border-right: 1px solid white;
+    padding-right: 1rem;
+}
+.info-desc-ele {
+    padding-left: 1rem;
+}
+
+/*예약 완료*/
+.reservation-num-name, .reservation-num {
+
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    color: white;
+}
+.reservation-num {
+    margin-bottom: 4rem;
+}
+
+/*footer*/
+footer {
+    height: 5rem;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
