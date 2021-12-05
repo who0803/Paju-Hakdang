@@ -12,7 +12,7 @@
 
     let outsideTop = parseInt(getStyle(nav, "height", "height")) + parseInt(getStyle(video, "height", "height")) + parseInt(getStyle(noticeContainer, "height", "height"))
 
-    console.log('outsideTop : ' + outsideTop);
+    //console.log('outsideTop : ' + outsideTop);
     // 에니매이션에 필요한 정보 담고 있는 배열
     const sceneInfo = [ // 객체 4개 : 스크롤 섹션 구간 4개
         // 스크롤 높이, 타이밍에 대한 정보
@@ -102,9 +102,9 @@
             }
         },
     ];
-    console.log(sceneInfo[0].objs.img);
-    console.log(sceneInfo[1].objs.img);
-    console.log(sceneInfo[2].objs.img);
+    //console.log(sceneInfo[0].objs.img);
+    //console.log(sceneInfo[1].objs.img);
+    //console.log(sceneInfo[2].objs.img);
 
     function getStyle(elem, cssprop, cssprop2) {
 
@@ -139,8 +139,8 @@
         //setLayout에서도 currentScene을 자동으로 세팅하는 기능 추가
         yOffset = window.pageYOffset;
         let totalScrollHeight = 0;
-        console.log('outsideTop' + outsideTop);
-        console.log('yOffset' + yOffset);
+        //console.log('outsideTop' + outsideTop);
+        //console.log('yOffset' + yOffset);
         if (outsideTop <= yOffset) {
             console.log(yOffset);
             for (let i = 0; i < sceneInfo.length; i++) {

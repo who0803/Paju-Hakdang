@@ -1,0 +1,26 @@
+.programContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    border: 1px solid gray;
+    
+}
+.programTitle {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: bolder;
+    border-bottom: 1px solid gray;
+}
+.programDesc {
+    display: flex;
+    flex-direction: column;
+
+}
+.programImg {
+    height: 0;	
+    padding-bottom: 60%;
+    margin-bottom: 7px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

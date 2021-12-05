@@ -64,6 +64,7 @@ a {
     /*local-nav-links 밑의 a 태그들*/
     font-size: 0.8rem;
     /*좀 작게 만듦*/
+    cursor: pointer;
 }
 
 .nav-links a:not(.web-name) {
@@ -145,7 +146,7 @@ a {
     flex-direction: column;
     background-color: #2a344a;
     color: white;
-
+    cursor: pointer;
 }
 
 .notice-img {
@@ -314,6 +315,7 @@ a {
     font-size: 2vw;
     color: white;
     font-weight: bolder;
+    cursor: pointer;
 }
 .contact-menu.selected {
     background-color: #2a344a;
@@ -376,7 +378,7 @@ input::placeholder {
     display: flex;
     padding: 1% 0;
     padding-right: 2%;
-    margin-bottom: 2rem;
+    
     background-color: white;
     font-size: 1rem;
 }
@@ -393,6 +395,16 @@ textarea {
     font-size: 1.5rem;
     padding: 0.5rem;
     margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.errorMessage {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: red;
+    margin-top: 1rem;
+    display: none;
 }
 /*드롭다운*/
 .select {
@@ -455,7 +467,7 @@ textarea {
 }
 
 /*예약 완료*/
-.reservation-num-name, .reservation-num {
+.reservation-num-name, .reservation-num, .reservation-record {
 
     font-size: 2rem;
     font-weight: bold;
@@ -465,7 +477,7 @@ textarea {
     margin-bottom: 10px;
     color: white;
 }
-.reservation-num {
+.reservation-num, .reservation-record {
     margin-bottom: 4rem;
 }
 

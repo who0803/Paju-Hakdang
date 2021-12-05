@@ -1,0 +1,65 @@
+extends layouts/main
+
+block content
+    .main
+        .video
+            section.iframebox
+                iframe(src='https://www.youtube.com/embed/NtG9eS3qZ24' frameborder='0' allowfullscreen='')
+        .hide-container
+            section.notice-container
+                .notice-name -notice-
+                .notice-viewport
+                    .notice-list
+                .btnContainer
+                    button.pre
+                        i.fa.fa-chevron-left(aria-hidden='true')
+                    button.next
+                        i.fa.fa-chevron-right(aria-hidden='true')
+                    button.more
+                        i.fa.fa-plus(aria-hidden='true')
+            .scroll-container
+                section#scroll-section-0.scroll-section
+                    .sticky-elem.sticky-elem-img
+                        #img-0
+                    .sticky-elem.main-message.a
+                        p 강사 양성
+                    .sticky-elem.main-message.b
+                        p
+                            | 노인 및 경력 단절 여성들이 모여 
+                            br
+                            | 역사·문화·예술 분야의 
+                            br
+                            | 전문강사가 될 수 있습니다.
+                section#scroll-section-1.scroll-section
+                    .sticky-elem.sticky-elem-img
+                        #img-1
+                    .sticky-elem.main-message.a
+                        p 강사 파견
+                    .sticky-elem.main-message.b
+                        p
+                            | 파주 관내 학교 및 일반 단체에 
+                            br
+                            | 역사 강사, 전통 문화 강사를
+                            br
+                            | 파견하고 있습니다.
+                section#scroll-section-2.scroll-section
+                    .sticky-elem.sticky-elem-img
+                        #img-2
+                    .sticky-elem.main-message.a
+                        p 여행
+                    .sticky-elem.main-message.b
+                        p
+                            | DMZ 평화 통일 여행, 
+                            br
+                            | 경기도 문화유산 여행을 
+                            br
+                            | 스토리텔링하고 있습니다.
+            .contact-menu-list
+                .contact-menu.reservation 예 약
+                .contact-menu.reservation-check 예약 확인
+                .contact-menu.inquiry 문 의
+                .blank
+            section.contact
+                .contact-name
+                .reserveform
+

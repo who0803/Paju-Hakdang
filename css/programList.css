@@ -1,0 +1,26 @@
+.programListContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    justify-content: center;
+    
+}
+.program {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: 20px;
+    cursor: pointer;
+}
+.programImg {
+    height: 0;	
+    padding-bottom: 60%;
+    margin-bottom: 7px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.programTitle {
+    font-weight: bolder;
+    flex: 1 1 auto;
+}
