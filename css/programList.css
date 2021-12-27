@@ -20,13 +20,12 @@
 }
 
 .programImg {
-    /*
-    height: 0;	
-    padding-bottom: 60%;
+    width: 180px;
+    height: 120px;	
     margin-bottom: 7px;
     background-size: contain;
-    background-repeat: no-repeat;*/
-    width: 100%;
+    background-repeat: no-repeat;
+    
 }
 .programTitle {
     font-weight: bolder;
