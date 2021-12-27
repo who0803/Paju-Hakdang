@@ -1,6 +1,8 @@
 const contactMenu = document.querySelector('.contact-menu-list');// 부모태그
 const reservation = document.querySelector('.reservation');
 
+const reservationChecker = document.querySelector('.reservation-check');
+
 const reserveform = document.querySelector('.reserveform');
 const contactName = document.querySelector('.contact-name');
 let loginFlag;  // 로그인 유무 플래그
@@ -296,6 +298,8 @@ function menuHandler(e) {	// EventListener로 실행이 되면 자동으로 첫�
 }
 
 contactMenu.addEventListener('click', menuHandler);
+activate(reservationChecker);
+inactivate(reservationChecker);
 activate(reservation);
 
 
@@ -307,11 +311,13 @@ activate(reservation);
 
 // 드롭다운 함수
 function onClickSelect(e) { // 눌렀을 때 활성화되있으면 비활성화 활성화 안되있으면 활성화
-    const isActive = e.currentTarget.className.indexOf("active") !== -1;
+    const isActive = e.currentTarget.classList.contains("active");
     if (isActive) {
-        e.currentTarget.className = "select";
+        e.currentTarget.classList.remove('active');
+        //e.currentTarget.className = "select";
     } else {
-        e.currentTarget.className = "select active";
+        e.currentTarget.classList.add('active');
+        //e.currentTarget.className = "select active";
     }
 }
 
