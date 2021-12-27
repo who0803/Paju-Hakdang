@@ -301,7 +301,8 @@ function createProgramList(obj) {
     let totalNoticeRow = 0;
 
     for (let i = 0; i < obj.length; i++) {
-        if (obj[i].category == 'trip') tripLen++;
+        if (obj[i].category == 'notice') noticeLen++;
+        else if (obj[i].category == 'trip') tripLen++;
         else if (obj[i].category == 'activity') activityLen++;
         else if (obj[i].category == 'training') trainingLen++;
     }
@@ -341,7 +342,7 @@ function createProgramList(obj) {
         totalTripRow = Math.ceil(tripLen / rowNum);    // 여행 전체 행
         totalActivityRow = Math.ceil(activityLen / rowNum);    // activity 전체 행
         totaltrainingRow = Math.ceil(trainingLen / rowNum);    // training 전체 행
-        totalNoticeRow = Math.ceil(trainingLen / rowNum);    // training 전체 행
+        totalNoticeRow = Math.ceil(noticeLen / rowNum);    // training 전체 행
 
         //console.log(rowNum);
         let pastRow = currentRow;   // 이전 행
