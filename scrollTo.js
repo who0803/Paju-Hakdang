@@ -5,14 +5,21 @@ let x;
 let programTop;
 let aboutTop;
 let contactTop;
+let locationTop;
+
 let noticeContainer;
 let noticeContainerpadding;
 let noticeContainerHeight;
+
+let contact; 
+let contactHeight; 
+
 let y;
 const menuBtns = document.querySelectorAll(".nav-menu");
 const programBtn = menuBtns[0];
 const aboutBtn = menuBtns[1];
 const contactBtn = menuBtns[2];
+const locationBtn = menuBtns[3];
 const webName = document.querySelector(".web-name");
 
 function getStyle(elem, cssprop, cssprop2) {
@@ -46,10 +53,14 @@ function init() {
     noticeContainerHeight = parseInt(getStyle(noticeContainer, 'height', 'height'));
     y = noticeContainerpadding + noticeContainerHeight; // 프로그램 컨테이너 크기
 
+    contact = document.querySelector(".contact");
+    contactHeight = parseInt(getStyle(contact, 'height', 'height'));
+
     // 이건 현재 스크롤에서 위치를 나타내는 거니까 절대 위치로 해보자
     programTop = document.querySelector(".hide-container").offsetTop;
     aboutTop = programTop + y;
     contactTop = aboutTop + window.innerHeight * 12 + x;
+    locationTop = contactTop + 
     console.log(programTop);
 
 }
@@ -68,6 +79,10 @@ aboutBtn.addEventListener('click', () => {
 contactBtn.addEventListener('click', () => {
     console.log(contactTop);
     window.scrollTo({ top: contactTop, behavior: 'smooth' });
+});
+locationBtn.addEventListener('click', () => {
+    console.log(locationBtn);
+    window.scrollTo({ top: contactTop + contactMenuListHeight + contactHeight, behavior: 'smooth' });
 });
 
 webName.addEventListener('click', () => {
